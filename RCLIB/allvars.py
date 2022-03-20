@@ -10,62 +10,60 @@ print(
 '''
 )
 
-#print('  Enter Todays Date:')
 e = datetime.datetime.now()
 iDate = e.strftime("%m-%d-%Y")
-#print(iDate)
 
 print('  Enter DCP Number:')
-iDcp = input()
+iDcp = input("  ")
 
 print('  Enter Tenant:')
-iTenant = input()
+iTenant = input("  ")
 
 print('  Enter VRF:')
-iVrf = input()
+iVrf = input("  ")
 
 print('  Enter Application Name:')
-iProj = input()
+iProj = input("  ")
 
 print('  Enter EPG:')
-iEpg = input()
+iEpg = input("  ")
 
 print('  Enter POD:') #This variable has been ID'd as a Digital Millennium Copyright Act Violation!
-iPod = input()
+iPod = input("  ")
 
 print('  Enter Your Initials:')
-iIni = input()
+iIni = input("  ")
 
 print('  Enter Module Number of Switch Interface:')
-iMod = input()
+iMod = input("  ")
 
 print('  Enter the First Node Number:')
-node1_num = input()
+node1_num = input("  ")
 
 print('  Enter the Second Node Number:')
-node2_num = input()
+node2_num = input("  ")
 
 while True:
-    iVlan = int(input("Enter the Encaps VLAN 1-4096: "))
+    iVlan = int(input("  Enter the Encaps VLAN 1-4096: \n  "))
     if iVlan < 0 or iVlan > 4096:
-        print("The value is out of range, try again.")
+        print("  The value is out of range, try again. \n  ")
     else:
         break
 
-iImmdQ = "  What Immediacy?  Immediate(immediate) or On Demand(lazy): \n"
+iImmdQ = "  What Immediacy?  Immediate(immediate) or On Demand(lazy): \n  "
 iImmdA = input(iImmdQ)
 
 if iImmdA in ['lazy', 'immediate']:
     print("\n")
     
 else:   
-    #print(dashRepeat2 + "\n" + FixIt + "\n" + dashRepeat2)
+    print(dashRepeat2 + "\n" + FixIt + "\n" + dashRepeat2)
     quit()
 
-iModeQ = "  What Mode Configuration For The Ports? Access=(untagged) Trunk=(regular): \n"
+iModeQ = "  What Mode Configuration For The Ports? Access=(untagged) Trunk=(regular) 802.1P = (native):\n  "
 iModeA = input(iModeQ) 
 
-if iModeA in ['untagged', 'regular']:
+if iModeA in ['untagged', 'regular', 'native']:
     print("\n")
     
 else:   
@@ -103,13 +101,12 @@ else:
     quit()
 
 print('  Enter Total vPCs:')
-iTvpc = int(input())
+iTvpc = int(input('  '))
 
-print('  Enter Starting Enterface: Eth' + iMod +'/')
-iSp = int(input())
+iSp = int(input('Enter Starting Enterface: Eth' + iMod + '/'))
 
-print('  Contained Ports in vPC: Typically 2 ')
-iCvpc = int(input())
+print('  LACP Bundle Size = 2   - Future enhancement to support 4,8  \n')
+iCvpc = 2
 iStep = iCvpc//2
 iPps = iStep//2
 iTp = iTvpc*iStep
